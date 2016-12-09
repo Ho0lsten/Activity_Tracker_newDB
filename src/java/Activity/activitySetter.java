@@ -6,6 +6,7 @@
 package Activity;
 
 import Hibernate.Activity;
+import Hibernate.ActivityReport;
 import Hibernate.Category;
 import Hibernate.HibernateUtil;
 import java.sql.Timestamp;
@@ -43,4 +44,17 @@ public class activitySetter {
         session2.getTransaction().commit();
 
     }
+    
+    public static void createActivityReport(Activity activity, Timestamp activityStartTime, Timestamp activityEndTime) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        ActivityReport act = new ActivityReport();
+        act.setActivity(activity);
+        act.setActivityStartTime(activityStartTime);
+        act.setActivityEndTime(activityEndTime);
+        session.save(act);
+        session.getTransaction().commit();
+
+    }
+    
 }

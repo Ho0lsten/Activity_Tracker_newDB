@@ -1,5 +1,5 @@
 package Hibernate;
-// Generated 09.12.2016 10:52:31 by Hibernate Tools 4.3.1
+// Generated 09.12.2016 13:25:19 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,16 +14,14 @@ public class Activity  implements java.io.Serializable {
      private Integer activityId;
      private Category category;
      private String activityName;
-     private String activityDescription;
      private Set activityReports = new HashSet(0);
 
     public Activity() {
     }
 
-    public Activity(Category category, String activityName, String activityDescription, Set activityReports) {
+    public Activity(Category category, String activityName, Set activityReports) {
        this.category = category;
        this.activityName = activityName;
-       this.activityDescription = activityDescription;
        this.activityReports = activityReports;
     }
    
@@ -47,13 +45,6 @@ public class Activity  implements java.io.Serializable {
     
     public void setActivityName(String activityName) {
         this.activityName = activityName;
-    }
-    public String getActivityDescription() {
-        return this.activityDescription;
-    }
-    
-    public void setActivityDescription(String activityDescription) {
-        this.activityDescription = activityDescription;
     }
     public Set getActivityReports() {
         return this.activityReports;

@@ -1,7 +1,8 @@
 package Hibernate;
-// Generated 09.12.2016 10:52:31 by Hibernate Tools 4.3.1
+// Generated 09.12.2016 13:25:19 by Hibernate Tools 4.3.1
 
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -12,16 +13,18 @@ public class ActivityReport  implements java.io.Serializable {
 
      private Integer activityReportId;
      private Activity activity;
-     private Date activityStartTime;
-     private Date activityEndTime;
+     private Timestamp activityStartTime;
+     private Timestamp activityEndTime;
+     private String activityDescription;
 
     public ActivityReport() {
     }
 
-    public ActivityReport(Activity activity, Date activityStartTime, Date activityEndTime) {
+    public ActivityReport(Activity activity, Timestamp activityStartTime, Timestamp activityEndTime, String activityDescription) {
        this.activity = activity;
        this.activityStartTime = activityStartTime;
        this.activityEndTime = activityEndTime;
+       this.activityDescription = activityDescription;
     }
    
     public Integer getActivityReportId() {
@@ -42,15 +45,22 @@ public class ActivityReport  implements java.io.Serializable {
         return this.activityStartTime;
     }
     
-    public void setActivityStartTime(Date activityStartTime) {
+    public void setActivityStartTime(Timestamp activityStartTime) {
         this.activityStartTime = activityStartTime;
     }
     public Date getActivityEndTime() {
         return this.activityEndTime;
     }
     
-    public void setActivityEndTime(Date activityEndTime) {
+    public void setActivityEndTime(Timestamp activityEndTime) {
         this.activityEndTime = activityEndTime;
+    }
+    public String getActivityDescription() {
+        return this.activityDescription;
+    }
+    
+    public void setActivityDescription(String activityDescription) {
+        this.activityDescription = activityDescription;
     }
 
 
