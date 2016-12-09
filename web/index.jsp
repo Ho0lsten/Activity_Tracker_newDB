@@ -38,6 +38,11 @@
     <div class="container">
         <h1><a href="index.jsp">Activity Tracker</a></h1>
         <p>Wir haben doch keine Zeit !</p> 
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" ><a href="Activity/activity_report_create.jsp">Zeiten erfassen</a></button>
+  <button type="button" class="btn btn-default">Zeiten löschen</button>
+  <button type="button" class="btn btn-default">Zeiten korrigieren</button>
+</div>
     </div>
 </div><!-- /End Jumbotron -->
 

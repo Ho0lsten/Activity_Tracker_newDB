@@ -70,11 +70,7 @@
             <input type="text" name="Name" value="" /> 
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">Beschreibung eingeben</div>
-        <div class="panel-body">
-            <input type="text" name="Beschreibung" value="" /> 
-        </div>
+  
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Kategorie auswählen</div>
@@ -101,18 +97,17 @@
     <input type="submit" value="speichern" >
 
     <%  String s1 = request.getParameter("Name");
-        String s2 = request.getParameter("Beschreibung");
-        String s3 = request.getParameter("Kategorien");
+        String s2 = request.getParameter("Kategorien");
         // String s4 = request.getParameter("activity_start_time");
         // String s5 = request.getParameter("activity_end_time");
 //out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
-        if (s1 != null && s2 != null && s3 != null) {
+        if (s1 != null && s2 != null) {
 
 //            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Category category = new Category();
-//            Integer categoryid = Integer.parseInt(s3);
-//            category.setCategoryId(categoryid);
-            //Category fkCategoryId = Category.setCategoryId(s3);
+            Integer categoryid = Integer.parseInt(s2);
+            category.setCategoryId(categoryid);
+            // Category fkCategoryId = Category.setCategoryId(s2);
             //java.sql.Timestamp activity_start_time = Timestamp.parse(s4, formatter);
             //LocalDateTime ast = LocalDateTime.parse(s4, formatter);
             //LocalDateTime aet = LocalDateTime.parse(s5, formatter);
@@ -127,10 +122,10 @@
             //out.println("ast " + activity_start_time);
             //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
             //out.println("aet " + activity_end_time);
-            activitySetter.createActivity(s1, s2, category);
+            activitySetter.createActivity(s1, category);
             //out.println("Kategorie" + s2 + "angelegt");
         }
-        
+
     %> 
 </form>
 
@@ -158,22 +153,18 @@
         <tr>
             <th width=”100px”>ID</th>
             <th width=”100px”>Name</th>
-            <th width=”100px”>Beschreibung</th>
             <th width=”100px”>Kategorie</th>
         </tr>
         <tr>                
-            <%
-                Activity[] ActivityArr = activityGetter.getActivities();
+            <%                Activity[] ActivityArr = activityGetter.getActivities();
                 for (int i = 0; i < ActivityArr.length; i++) {
 
             %> 
         <tr>
             <td><b><%=ActivityArr[i].getActivityId()%></b></td>
             <td><b><%=ActivityArr[i].getActivityName()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityDescription()%></b></td> 
             <td><b><%=ActivityArr[i].getCategory().getCategoryId()%></b></td>
-            <td><b><%//=ActivityArr[i].getActivityStartTime()%></b></td>
-            <td><b><%//=ActivityArr[i].getActivityEndTime()%></b></td>                  
+                       
 
 
             <%

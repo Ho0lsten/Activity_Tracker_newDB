@@ -4,6 +4,7 @@
     Author     : hools_000
 --%>
 
+<%@page import="Hibernate.HibernateUtil"%>
 <%@page import="Category.categorySetter"%>
 <%@page import="Category.categoryGetter"%>
 <%@page import="Hibernate.Category"%>
@@ -46,47 +47,40 @@
 <body>
 
         
-            <%  String s0 = request.getParameter("ID");
-                if (s0 != null) {
-                    Category cat = categoryGetter.getCategoryById(Integer.parseInt(s0));
-                    String s1 = cat.getCategoryName();
-                    // out.println(s1);
-                    String s2 = cat.getCategoryDescription();
-                    // out.println(s2);
-                    String s3 = cat.getCategoryType();
-                    // out.println(s3);
-                    // Array s4[] = cat.getActivities();            
+         <div id="foo" class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Kategorien</div>
 
-                    // request.setAttribute("Type", s3);
-                    // request.setAttribute("Activities", s3);
+    <!-- Table -->
+    <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
+        <tr>
+            <th width=”100px”>ID</th>
+            <th width=”100px”>Name</th>
+            <th width="100px">Beschreibung</th>
+            <th width=”100px”>Typ</th>
 
+        </tr>
+        <tr>                
+            <%
+                Category[] CategoryArr = categoryGetter.getCategorys();
+                for (int i = 0; i < CategoryArr.length; i++) {
             %> 
-        
-        <form action="category_update.jsp">
-            <input type="submit" name="Update!">
-            <input type="hidden" name="ID" value="<%=s0%>">
-            Name: <input type="text" name="Name" value="<%=s1%>">
-            Beschreibung: <input type="text" name="Description" value="<%=s2%>">
-            Typ: <input type="text" name="Type" value="<%=s3%>">
-            Aktivitäten: <input type="text" name="Activities" value="<%//=s4%>">
-            <input type="submit" name="Update!">
+        <tr>
+            <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
+             <td><b><a href="category_update_single.jsp?ID=<%=CategoryArr[i].getCategoryId()%>"><%=CategoryArr[i].getCategoryName()%></a></b></td>
+            <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
+            <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
 
-            <%}
-                String u0 = request.getParameter("ID");
-                String u1 = request.getParameter("Name");
-                String u2 = request.getParameter("Description");
-                String u3 = request.getParameter("Type");
 
-                if (u0 != null && u1 != null && u2 != null && u3 != null) {
-                    categorySetter.updateCategoryById(Integer.parseInt(u0), u1, u2, u3);
-                    out.println("Die Kategorie " + u1 + " wurde erfolgreich geändert.");
+            <%
                 }
+                HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
-
-            %>
-        </form>
-    </body>
-
+            %>               
+        </tr>
+    </table>
+</div>
+</body>
 <hr>
 
 <footer>
