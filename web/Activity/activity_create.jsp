@@ -48,7 +48,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
- 
+
 
 </head>
 
@@ -81,7 +81,7 @@
         <div class="panel-body">
             <select name="Kategorien">
 
-                <% 
+                <%
                     Category[] CategoryArr = categoryGetter.getCategorys();
                     for (int i = 0; i < CategoryArr.length; i++) {
 
@@ -91,34 +91,22 @@
 
                 <%
                     }
-                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect(); 
+                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
                 %>
             </select>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">Startzeit eingeben</div>
-        <div class="panel-body">
-            <input type="datetime-local" name="activity_start_time" id="activity_start_time" data-format="DD.MM.YYYY HH:mm" data-template="DD / MM / YYYY HH : mm" required="required"/>
-        </div>
-    </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">Endzeit eingeben</div>
-        <div class="panel-body">
-            <input type="datetime-local" name="activity_end_time" id="activity_end_time" data-format="DD.MM.YYYY HH:mm" data-template="DD / MM / YYYY HH : mm" required="required"/>
-        </div>
-    </div>
     <input type="submit" value="speichern" >
 
     <%  String s1 = request.getParameter("Name");
         String s2 = request.getParameter("Beschreibung");
         String s3 = request.getParameter("Kategorien");
-        String s4 = request.getParameter("activity_start_time");
-        String s5 = request.getParameter("activity_end_time");
-out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
-        if (s1 != null && s2 != null && s3 != null && s4 != null && s5 != null) {
+        // String s4 = request.getParameter("activity_start_time");
+        // String s5 = request.getParameter("activity_end_time");
+//out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
+        if (s1 != null && s2 != null && s3 != null) {
 
 //            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Category category = new Category();
@@ -141,19 +129,20 @@ out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
             //out.println("aet " + activity_end_time);
             activitySetter.createActivity(s1, s2, category);
             //out.println("Kategorie" + s2 + "angelegt");
-        } 
+        }
+        
     %> 
 </form>
 
 <script type="text/javascript">
 
-function toggle_visibility(id) {
-                    var e = document.getElementById(id);
-            if (e.style.display === 'none')
-                e.style.display = 'block';
-            else
-                e.style.display = 'none';
-}
+    function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if (e.style.display === 'none')
+            e.style.display = 'block';
+        else
+            e.style.display = 'none';
+    }
 
 </script>     
 <br></br>
@@ -171,12 +160,10 @@ function toggle_visibility(id) {
             <th width=”100px”>Name</th>
             <th width=”100px”>Beschreibung</th>
             <th width=”100px”>Kategorie</th>
-            <th width=”100px”>Startzeit</th>
-            <th width=”100px”>Endzeit</th>
         </tr>
         <tr>                
             <%
-               Activity[] ActivityArr = activityGetter.getActivities();
+                Activity[] ActivityArr = activityGetter.getActivities();
                 for (int i = 0; i < ActivityArr.length; i++) {
 
             %> 
@@ -191,19 +178,19 @@ function toggle_visibility(id) {
 
             <%
                 }
-                HibernateUtil.getSessionFactory().getCurrentSession().disconnect(); 
+                HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
             %>               
         </tr>
     </table>
 </div>
 
-    <hr>
+<hr>
 
-    <footer>
-        <p>&copy; 2016 MoveoMed, GmbH</p>
-    </footer>
- <!-- /container -->  
+<footer>
+    <p>&copy; 2016 MoveoMed, GmbH</p>
+</footer>
+<!-- /container -->  
 
 
 
