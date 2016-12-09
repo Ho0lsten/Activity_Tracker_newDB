@@ -120,18 +120,18 @@
 out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
         if (s1 != null && s2 != null && s3 != null && s4 != null && s5 != null) {
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Category category = new Category();
-            Integer categoryid = Integer.parseInt(s3);
-            category.setCategoryId(categoryid);
+//            Integer categoryid = Integer.parseInt(s3);
+//            category.setCategoryId(categoryid);
             //Category fkCategoryId = Category.setCategoryId(s3);
             //java.sql.Timestamp activity_start_time = Timestamp.parse(s4, formatter);
-            LocalDateTime ast = LocalDateTime.parse(s4, formatter);
-            LocalDateTime aet = LocalDateTime.parse(s5, formatter);
+            //LocalDateTime ast = LocalDateTime.parse(s4, formatter);
+            //LocalDateTime aet = LocalDateTime.parse(s5, formatter);
 
-            Timestamp activity_start_time = Timestamp.valueOf(ast);
+            //Timestamp activity_start_time = Timestamp.valueOf(ast);
             //out.println("ast " + activity_start_time);
-            Timestamp activity_end_time = Timestamp.valueOf(aet);
+            //Timestamp activity_end_time = Timestamp.valueOf(aet);
             //out.println("aet " + activity_end_time);
             //Timestamp activity_start_time =timestamp.convertStringToTimestamp(s4);
             //out.println("ast " + activity_start_time);
@@ -139,7 +139,7 @@ out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
             //out.println("ast " + activity_start_time);
             //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
             //out.println("aet " + activity_end_time);
-            activitySetter.createActivity(s1, s2, category, activity_start_time, activity_end_time);
+            activitySetter.createActivity(s1, s2, category);
             //out.println("Kategorie" + s2 + "angelegt");
         } 
     %> 
@@ -185,8 +185,8 @@ function toggle_visibility(id) {
             <td><b><%=ActivityArr[i].getActivityName()%></b></td>
             <td><b><%=ActivityArr[i].getActivityDescription()%></b></td> 
             <td><b><%=ActivityArr[i].getCategory().getCategoryId()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityStartTime()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityEndTime()%></b></td>                  
+            <td><b><%//=ActivityArr[i].getActivityStartTime()%></b></td>
+            <td><b><%//=ActivityArr[i].getActivityEndTime()%></b></td>                  
 
 
             <%
