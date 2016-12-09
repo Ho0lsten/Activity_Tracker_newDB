@@ -19,7 +19,7 @@ import org.hibernate.Session;
  */
 public class activitySetter {
 
-    public static void createActivity(String activityName, String activityDescription, Category category) {
+    public static void createActivity(String activityName, Category category) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Activity act = new Activity();
@@ -31,27 +31,43 @@ public class activitySetter {
     }
 
     public static void updateActivityById(Integer activityId, String activityName, Category category) {
-        Session session2 = HibernateUtil.getSessionFactory().openSession();
-        session2.beginTransaction();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
         Activity updateAct = new Activity();
-        updateAct = (Activity) session2.get(Category.class, activityId);
+        updateAct = (Activity) session.get(Activity.class, activityId);
         Hibernate.initialize(updateAct);
         updateAct.setActivityName(activityName);
-        session2.merge(updateAct);
-        session2.saveOrUpdate(updateAct);
-        session2.getTransaction().commit();
+        session.merge(updateAct);
+        session.saveOrUpdate(updateAct);
+        session.getTransaction().commit();
 
     }
 
     public static void createActivityReport(Activity activity, Timestamp activityStartTime, Timestamp activityEndTime, String activityDescription) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        ActivityReport act = new ActivityReport();
-        act.setActivity(activity);
-        act.setActivityStartTime(activityStartTime);
-        act.setActivityEndTime(activityEndTime);
-        act.setActivityDescription(activityDescription);
-        session.save(act);
+        ActivityReport actRep = new ActivityReport();
+        actRep.setActivity(activity);
+        actRep.setActivityStartTime(activityStartTime);
+        actRep.setActivityEndTime(activityEndTime);
+        actRep.setActivityDescription(activityDescription);
+        session.save(actRep);
+        session.getTransaction().commit();
+
+    }
+    
+    public static void updateActivityReportById(Integer activityReportId, Activity activity, String activityDescription, Timestamp activityStartTime, Timestamp activityEndTime) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        ActivityReport updateActRep = new ActivityReport();
+        updateActRep = (ActivityReport) session.get(ActivityReport.class, activityReportId);
+        Hibernate.initialize(updateActRep);
+        updateActRep.setActivity(activity);
+        updateActRep.setActivityDescription(activityDescription);
+        updateActRep.setActivityStartTime(activityStartTime);
+        updateActRep.setActivityEndTime(activityEndTime);
+        session.merge(updateActRep);
+        session.saveOrUpdate(updateActRep);
         session.getTransaction().commit();
 
     }
