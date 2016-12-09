@@ -1,8 +1,7 @@
 package Hibernate;
-// Generated 09.12.2016 13:25:19 by Hibernate Tools 4.3.1
+// Generated 09.12.2016 16:25:05 by Hibernate Tools 4.3.1
 
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -13,18 +12,20 @@ public class ActivityReport  implements java.io.Serializable {
 
      private Integer activityReportId;
      private Activity activity;
-     private Timestamp activityStartTime;
-     private Timestamp activityEndTime;
+     private Date activityStartTime;
+     private Date activityEndTime;
      private String activityDescription;
+     private Integer activityDuration;
 
     public ActivityReport() {
     }
 
-    public ActivityReport(Activity activity, Timestamp activityStartTime, Timestamp activityEndTime, String activityDescription) {
+    public ActivityReport(Activity activity, Date activityStartTime, Date activityEndTime, String activityDescription, Integer activityDuration) {
        this.activity = activity;
        this.activityStartTime = activityStartTime;
        this.activityEndTime = activityEndTime;
        this.activityDescription = activityDescription;
+       this.activityDuration = activityDuration;
     }
    
     public Integer getActivityReportId() {
@@ -45,14 +46,14 @@ public class ActivityReport  implements java.io.Serializable {
         return this.activityStartTime;
     }
     
-    public void setActivityStartTime(Timestamp activityStartTime) {
+    public void setActivityStartTime(Date activityStartTime) {
         this.activityStartTime = activityStartTime;
     }
     public Date getActivityEndTime() {
         return this.activityEndTime;
     }
     
-    public void setActivityEndTime(Timestamp activityEndTime) {
+    public void setActivityEndTime(Date activityEndTime) {
         this.activityEndTime = activityEndTime;
     }
     public String getActivityDescription() {
@@ -61,6 +62,13 @@ public class ActivityReport  implements java.io.Serializable {
     
     public void setActivityDescription(String activityDescription) {
         this.activityDescription = activityDescription;
+    }
+    public Integer getActivityDuration() {
+        return this.activityDuration;
+    }
+    
+    public void setActivityDuration(Integer activityDuration) {
+        this.activityDuration = activityDuration;
     }
 
 

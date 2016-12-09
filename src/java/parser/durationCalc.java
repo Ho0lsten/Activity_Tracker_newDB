@@ -42,6 +42,7 @@ public class durationCalc {
             diffMinutes = diff / (60 * 1000) % 60;
             diffHours = diff / (60 * 60 * 1000) % 24;
             diffDays = diff / (24 * 60 * 60 * 1000);
+            
 
 //            System.out.print(diffDays + " days, ");
 //            System.out.print(diffHours + " hours, ");
@@ -51,6 +52,7 @@ public class durationCalc {
             System.out.println("Exception :" + e);
             throw e;
         }
-        return diffHours;
+        return diffDays;
+     
     }
 }
