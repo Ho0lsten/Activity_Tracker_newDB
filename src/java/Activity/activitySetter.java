@@ -24,37 +24,36 @@ public class activitySetter {
         session.beginTransaction();
         Activity act = new Activity();
         act.setActivityName(activityName);
-        act.setActivityDescription(activityDescription);
         act.setCategory(category);
         session.save(act);
         session.getTransaction().commit();
 
     }
 
-    public static void updateActivityById(Integer activityId, String activityName, String activityDescription, Category category) {
+    public static void updateActivityById(Integer activityId, String activityName, Category category) {
         Session session2 = HibernateUtil.getSessionFactory().openSession();
         session2.beginTransaction();
         Activity updateAct = new Activity();
         updateAct = (Activity) session2.get(Category.class, activityId);
         Hibernate.initialize(updateAct);
         updateAct.setActivityName(activityName);
-        updateAct.setActivityDescription(activityDescription);
         session2.merge(updateAct);
         session2.saveOrUpdate(updateAct);
         session2.getTransaction().commit();
 
     }
-    
-    public static void createActivityReport(Activity activity, Timestamp activityStartTime, Timestamp activityEndTime) {
+
+    public static void createActivityReport(Activity activity, Timestamp activityStartTime, Timestamp activityEndTime, String activityDescription) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         ActivityReport act = new ActivityReport();
         act.setActivity(activity);
         act.setActivityStartTime(activityStartTime);
         act.setActivityEndTime(activityEndTime);
+        act.setActivityDescription(activityDescription);
         session.save(act);
         session.getTransaction().commit();
 
     }
-    
+
 }
