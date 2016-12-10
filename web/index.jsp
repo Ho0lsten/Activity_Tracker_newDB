@@ -39,82 +39,82 @@
         <h1><a href="index.jsp">Activity Tracker</a></h1>
         <p>Wir haben doch keine Zeit !</p> 
         <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" ><a href="Activity/activity_report_create.jsp">Zeiten erfassen</a></button>
-  <button type="button" class="btn btn-default">Zeiten löschen</button>
-  <button type="button" class="btn btn-default">Zeiten korrigieren</button>
-</div>
+            <a class="btn btn-default" href="Activity/activity_report_create.jsp">Zeiten erfassen</a>
+            <a class="btn btn-default" href="Activity/activity_report_delete.jsp">Zeiten löschen</a>
+            <a class="btn btn-default" href="Activity/activity_report_update.jsp">Zeiten korrigieren</a>
+        </div>
     </div>
 </div><!-- /End Jumbotron -->
 
 <!-- Header Navigation -->
 
-   <!-- Single button -->
-   <div class="container">
-        <div class="col-md-4">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Kategorie<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="Category/category_create.jsp">anlegen</a></li>
-                <li><a href="Category/category_delete.jsp">löschen</a></li>
-                <li><a href="Category/category_update.jsp">bearbeiten</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Übersicht</a></li>
-            </ul>
-        </div>
-   <!-- Single button -->
-        <div class="col-md-4" >
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Aktivität <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="Activity/activity_create.jsp">anlegen</a></li>
-                <li><a href="Activity/activity_delete.jsp">löschen</a></li>
-                <li><a href="Activity/activity_update.jsp">bearbeiten</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Übersicht</a></li>
-            </ul>
-        </div>
-         <!-- Single button -->
-        <div class="col-md-4">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Auswertung <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="Statistics/analysis.jsp">los !</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Übersicht</a></li>
-            </ul>
-        </div>
+<!-- Single button -->
+<div class="container">
+    <div class="col-md-4">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Kategorie<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="Category/category_create.jsp">anlegen</a></li>
+            <li><a href="Category/category_delete.jsp">löschen</a></li>
+            <li><a href="Category/category_update.jsp">bearbeiten</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Übersicht</a></li>
+        </ul>
+    </div>
+    <!-- Single button -->
+    <div class="col-md-4" >
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Aktivität <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="Activity/activity_create.jsp">anlegen</a></li>
+            <li><a href="Activity/activity_delete.jsp">löschen</a></li>
+            <li><a href="Activity/activity_update.jsp">bearbeiten</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Übersicht</a></li>
+        </ul>
+    </div>
+    <!-- Single button -->
+    <div class="col-md-4">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Auswertung <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="Statistics/analysis.jsp">los !</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Übersicht</a></li>
+        </ul>
+    </div>
 </div>
 <!-- End Header Navigation -->
-        
- <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
         <div class="col-md-4">
-          <h2>Kategorien verwalten</h2>
-          <p>Erstellen Sie Kategorien für die Einordnung ihrer Aktivitäten. </p>
-         
+            <h2>Kategorien verwalten</h2>
+            <p>Erstellen Sie Kategorien für die Einordnung ihrer Aktivitäten. </p>
+
         </div>
         <div class="col-md-4">
-          <h2>Aktivitäten verwalten</h2>
-          <p>Dokumentieren Sie ihre Aktivitäten.</p>
-         
-       </div>
-        <div class="col-md-4">
-          <h2>Auswertung</h2>
-          <p>Verschaffen Sie sich einen Überblick.</p>
-         
+            <h2>Aktivitäten verwalten</h2>
+            <p>Dokumentieren Sie ihre Aktivitäten.</p>
+
         </div>
-      </div>
+        <div class="col-md-4">
+            <h2>Auswertung</h2>
+            <p>Verschaffen Sie sich einen Überblick.</p>
 
-      <hr>
+        </div>
+    </div>
 
-      <footer>
+    <hr>
+
+    <footer>
         <p>&copy; 2016 MoveoMed, GmbH</p>
-      </footer>
-    </div> <!-- /container -->  
+    </footer>
+</div> <!-- /container -->  
 
 
 

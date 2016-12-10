@@ -18,7 +18,6 @@
 <%@page import="Hibernate.HibernateUtil"%>
 <%@page import="Activity.activitySetter"%>
 <%@page import="parser.timestamp"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -84,12 +83,12 @@
                     HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
                 %>
-
-
+                
+       
             </select>
         </div>
     </div>
-
+            
     <div class="panel panel-default">
         <div class="panel-heading">Beschreibung eingeben</div>
         <div class="panel-body">
@@ -132,25 +131,16 @@
             Timestamp activity_start_time = Timestamp.valueOf(ast);
             //out.println("ast " + activity_start_time);
             Timestamp activity_end_time = Timestamp.valueOf(aet);
-
-            long duration_seconds = activity_end_time.getTime() - activity_start_time.getTime();
-            int durtion_seconds_int = (((int) duration_seconds) / 1000);
-            if (durtion_seconds_int > 0) {
-                activitySetter.createActivityReport(activity, s2, activity_start_time, activity_end_time, durtion_seconds_int);
-
-            } else {  %>
-    <script> alert('Bitte kürzeren Zeitraum angeben (maxmimal 7 Tage)');</script>
-    <%}
-        }%>
-    <% //out.println("aet " + activity_end_time);
-        //Timestamp activity_start_time =timestamp.convertStringToTimestamp(s4);
-        //out.println("ast " + activity_start_time);
-        //Timestamp activity_start_time =Timestamp.valueOf(s4);
-        //out.println("ast " + activity_start_time);
-        //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
-        //out.println("aet " + activity_end_time);
-        //out.println("Kategorie" + s2 + "angelegt");
-
+            //out.println("aet " + activity_end_time);
+            //Timestamp activity_start_time =timestamp.convertStringToTimestamp(s4);
+            //out.println("ast " + activity_start_time);
+            //Timestamp activity_start_time =Timestamp.valueOf(s4);
+            //out.println("ast " + activity_start_time);
+            //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
+            //out.println("aet " + activity_end_time);
+            activitySetter.createActivityReport(activity, s2 ,activity_start_time, activity_end_time);
+            //out.println("Kategorie" + s2 + "angelegt");
+        }
 
     %> 
 </form>
@@ -177,29 +167,25 @@
     <!-- Table -->
     <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
         <tr>
-            <th width=”100px”>ID</th>
+            
             <th width=”100px”>Name</th>
             <th width=”100px”>Beschreibung</th>
             <th width=”100px”>Kategorie</th>
-            <th width=”100px”>Startdatum</th>
-            <th width=”100px”>Enddatum</th>
-            <th width=”100px”>Dauer</th>
+            <th width=”100px”>Startzeit</th>
+            <th width=”100px”>Endzeit</th>
         </tr>
         <tr>                
-            <%                for (int i = 0; i < ActivityReportArr.length; i++) {
-                    Integer z = ActivityReportArr[i].getActivity().getActivityId();
-                    String duration = parser.duration.getActivityReportDurationById(z);
+            <%              
+                for (int i = 0; i < ActivityReportArr.length; i++) {
 
             %> 
         <tr>
-            <td><b><%=ActivityReportArr[i].getActivity().getActivityId()%></b></td>
+            
             <td><b><%=ActivityReportArr[i].getActivity().getActivityName()%></b></td>
             <td><b><%=ActivityReportArr[i].getActivityDescription()%></b></td> 
-            <td><b><%=ActivityReportArr[i].getActivity().getCategory().getCategoryId()%></b></td>
+            <td><b><%=ActivityReportArr[i].getActivity().getCategory().getCategoryName()%></b></td>
             <td><b><%=ActivityReportArr[i].getActivityStartTime()%></b></td>
-            <td><b><%=ActivityReportArr[i].getActivityEndTime()%></b></td>  
-            <td><b><%=duration%></b></td>                  
-
+            <td><b><%=ActivityReportArr[i].getActivityEndTime()%></b></td>                  
 
 
             <%

@@ -163,7 +163,7 @@
         <tr>
             <td><b><%=ActivityArr[i].getActivityId()%></b></td>
             <td><b><%=ActivityArr[i].getActivityName()%></b></td>
-            <td><b><%=ActivityArr[i].getCategory().getCategoryId()%></b></td>
+            <td><b><%=ActivityArr[i].getCategory().getCategoryName()%></b></td>
                        
 
 

@@ -62,14 +62,22 @@
 
             %> 
         
-        <form action="single_category_overview.jsp">
-            <input type="submit" name="Update!">
+        <form action="category_update_single.jsp">
+            <input type="submit" name="Update!" value="ändern">
             <input type="hidden" name="ID" value="<%=s0%>">
             Name: <input type="text" name="Name" value="<%=s1%>">
             Beschreibung: <input type="text" name="Description" value="<%=s2%>">
-            Typ: <input type="text" name="Type" value="<%=s3%>">
-            Aktivitäten: <input type="text" name="Activities" value="<%//=s4%>">
-            <input type="submit" name="Update!">
+            Typ:<select name="Type">
+
+                <option value="Arbeit"> Arbeit</option>      
+                <option value="Privat"> Privat</option>     
+
+
+            </select>
+            <span class="badge"><%=s3%></span>
+            
+<!--            Aktivitäten: <input type="text" name="Activities" value="<%//=s4%>">
+            <input type="submit" name="Update!">-->
 
             <%}
                 String u0 = request.getParameter("ID");

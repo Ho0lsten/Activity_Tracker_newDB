@@ -28,13 +28,13 @@ public class activityDelete {
      session.getTransaction().commit();
 }
     
-        public static void activityReportDeleteById(Integer id)
+        public static void activityReportDeleteById(Integer actid)
 {
     Session session;
     ActivityReport activityReport ;
     session = HibernateUtil.getSessionFactory().openSession();
     session.beginTransaction();
-    activityReport = (ActivityReport)session.load(ActivityReport.class,id);
+    activityReport = (ActivityReport)session.load(ActivityReport.class,actid);
     session.delete(activityReport);
     //This makes the pending delete to be done
      session.getTransaction().commit();

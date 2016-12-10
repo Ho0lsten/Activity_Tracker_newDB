@@ -114,10 +114,10 @@
     <!-- Table -->
     <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
         <tr>
-            <th width=”100px”>ID</th>
-            <th width=”100px”>Name</th>
-            <th width="100px">Beschreibung</th>
-            <th width=”100px”>Typ</th>
+            <th width=”50px”>ID</th>
+            <th width=”50px”>Name</th>
+            <th width="400px">Beschreibung</th>
+            <th width=”50px”>Typ</th>
 
         </tr>
         <tr>                

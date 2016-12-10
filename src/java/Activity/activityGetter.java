@@ -41,13 +41,13 @@ public class activityGetter {
 
     }
 
-    public static Activity getActivityById(int categoryId) {
+    public static Activity getActivityById(int activityId) {
         Session session;
         Activity activity = new Activity();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
 
-            activity = (Activity) session.get(Activity.class, categoryId);
+            activity = (Activity) session.get(Activity.class, activityId);
             Hibernate.initialize(activity);
             // List<Category> Categoryresult = criteria.list();
 

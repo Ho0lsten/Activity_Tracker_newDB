@@ -1,16 +1,15 @@
 <%-- 
-    Document   : category_delete
-    Created on : 02.12.2016, 12:48:56
-    Author     : hools_000
+    Document   : activity_report_delete
+    Created on : 10.12.2016, 16:12:52
+    Author     : Ho0lsten 3570
 --%>
 
-<%@page import="java.util.Arrays"%>
-<%@page import="java.lang.reflect.Array"%>
-<%@page import="Category.categoryGetter"%>
-<%@page import="Hibernate.Category"%>
+<%@page import="Hibernate.ActivityReport"%>
 <%@page import="Hibernate.HibernateUtil"%>
-<%@page import="Category.categoryDelete"%>
-<%@page import="Category.categorySetter"%>
+<%@page import="Activity.activityGetter"%>
+<%@page import="Hibernate.Activity"%>
+<%@page import="Activity.activityDelete"%>
+<%@page import="java.util.Arrays"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -20,8 +19,8 @@
         for (int i = 0; i < checked.length; i++) {
             String id = checked[i];
             out.println(id);
-            Integer catid = Integer.parseInt(id);
-            categoryDelete.categoryDeleteById(catid);
+            Integer actrepid = Integer.parseInt(id);
+            activityDelete.activityReportDeleteById(actrepid);
         }
     }%>
 <head>
@@ -29,7 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Activity Tracker - delete category</title>
+    <title>Activity Tracker - delete entrys</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -48,26 +47,25 @@
     <![endif]-->
 </head>
 
+
+
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1><a href="../index.jsp">Kategorien löschen.</a></h1>
-        <p>leeeschen</p> 
+        <h1><a href="../index.jsp">Zeiten löschen.</a></h1>
+        <p>weesch</p> 
     </div>
 </div><!-- /End Jumbotron -->
 <div class="panel panel-default">
     <div class="panel-heading">Löschen via ID</div>
     <div class="panel-body">
-
-
-        <form action="category_delete.jsp">
-
+        <form action="activity_report_delete.jsp">
             <input type="text" name="ID">
             <input type="submit" value="OK">
             <% String s1 = request.getParameter("ID");
                 try {
                     if (s1 != null) {
-                        categoryDelete.categoryDeleteById(Integer.parseInt(s1));
+                        activityDelete.activityDeleteById(Integer.parseInt(s1));
                     }
                 } catch (Exception e) {
                     out.println("Bitte gültige ID eingeben!");
@@ -94,53 +92,49 @@
 
 <div id="foo" class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Kategorien</div>
+    <div class="panel-heading"><a href="../index.jsp">Kategorien</a></div>
 
     <!-- Table -->
     <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
         <tr>
-            <th width=”100px”>ID</th>
+
             <th width=”100px”>Name</th>
-            <th width="100px">Beschreibung</th>
-            <th width=”100px”>Typ</th>
-            <th width=”100px”>Löschen</th>
-
+            <th width=”100px”>Beschreibung</th>
+            <th width=”100px”>Kategorie</th>
+            <th width=”100px”>Startzeit</th>
+            <th width=”100px”>Endzeit</th>
+            <th width=”100px”>löschen</th>
         </tr>
-        <tr> 
-        <form action="category_delete.jsp" method="POST">
-            <%
-                Category[] CategoryArr = categoryGetter.getCategorys();
-                for (int i = 0; i < CategoryArr.length; i++) {
-            %> 
+        <form action="activity_report_delete.jsp" method="POST">
+            <tr>                
+                <%
+                    ActivityReport[] ActivityReportArr = activityGetter.getActivityReports();
+                    for (int i = 0; i < ActivityReportArr.length; i++) {
+
+                %> 
             <tr>
-                <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
-                <td><b><%=CategoryArr[i].getCategoryName()%></b></td>
-                <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
-                <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
-                <td><input type="checkbox" name="checker" value="<%=CategoryArr[i].getCategoryId()%>"></td>                
 
+                <td><b><%=ActivityReportArr[i].getActivity().getActivityName()%></b></td>
+                <td><b><%=ActivityReportArr[i].getActivityDescription()%></b></td> 
+                <td><b><%=ActivityReportArr[i].getActivity().getCategory().getCategoryName()%></b></td>
+                <td><b><%=ActivityReportArr[i].getActivityStartTime()%></b></td>
+                <td><b><%=ActivityReportArr[i].getActivityEndTime()%></b></td>                  
+                <td><input type="checkbox" name="checker" value="<%=ActivityReportArr[i].getActivityReportId()%>"></td>
 
-                <% }
-
+                <%
+                    }
                     HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
-                %>   
-
-
-
-        
-
-        </tr>
+                %>               
+            </tr>
 
     </table>
+
 </div>
-
-
 <div>
     <input type="submit" value="löschen">
 </div>
 </form>
-
 <hr>
 
 <footer>
@@ -154,4 +148,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-</html>
+</html>-

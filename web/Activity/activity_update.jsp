@@ -4,6 +4,12 @@
     Author     : hools_000
 --%>
 
+<%@page import="Activity.activityGetter"%>
+<%@page import="Hibernate.Activity"%>
+<%@page import="Hibernate.Activity"%>
+<%@page import="Category.categoryGetter"%>
+<%@page import="Hibernate.Category"%>
+<%@page import="Hibernate.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -41,7 +47,41 @@
     </div>
 </div><!-- /End Jumbotron -->
 
+<body>
 
+
+    <div id="foo" class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Aktivitäten</div>
+
+        <!-- Table -->
+        <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
+            <tr>
+                <th width=”50px”>Name</th>
+                <th width="800px">Kategorie</th>
+                <th width=”100px”>Typ</th>
+
+            </tr>
+            <tr>                
+                <%
+                    Activity[] ActivityArr = activityGetter.getActivities();
+                    for (int i = 0; i < ActivityArr.length; i++) {
+                %> 
+            <tr>
+                <td><b><a href="activity_update_single.jsp?ID=<%=ActivityArr[i].getActivityId()%>"><%=ActivityArr[i].getActivityName()%></a></b></td>
+                <td><b><%=ActivityArr[i].getCategory().getCategoryName()%></b></td>
+                <td><b><%=ActivityArr[i].getCategory().getCategoryType()%></b></td>
+
+
+                <%
+                    }
+                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+
+                %>               
+            </tr>
+        </table>
+    </div>
+</body>
 <hr>
 
 <footer>

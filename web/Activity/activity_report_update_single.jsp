@@ -1,27 +1,21 @@
 <%-- 
-    Document   : activity_update
-    Created on : 02.12.2016, 13:37:29
-    Author     : hools_000
+    Document   : activity_report_update_single
+    Created on : 10.12.2016, 17:37:03
+    Author     : Ho0lsten 3570
 --%>
 
-<%@page import="Activity.activitySetter"%>
-<%@page import="Category.categorySetter"%>
-<%@page import="Category.categoryGetter"%>
-<%@page import="Hibernate.Category"%>
-<%@page import="Hibernate.Category"%>
-<%@page import="Hibernate.HibernateUtil"%>
+<%@page import="Hibernate.Activity"%>
 <%@page import="Activity.activityGetter"%>
-<%@page import="Hibernate.Activity"%>
-<%@page import="Hibernate.Activity"%>
+<%@page import="Hibernate.ActivityReport"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<head>
+<html>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Activity Tracker - update activity</title>
+    <title>Activity Tracker - update entry</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +39,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1><a href="../index.jsp">Aktivität bearbeiten.</a></h1>
+        <h1><a href="../index.jsp">Zeiten korrigieren.</a></h1>
         <p>beooarbeetn</p> 
     </div>
 </div><!-- /End Jumbotron -->
