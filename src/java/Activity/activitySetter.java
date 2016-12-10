@@ -43,7 +43,7 @@ public class activitySetter {
 
     }
 
-    public static void createActivityReport(Activity activity, String activityDescription, Timestamp activityStartTime, Timestamp activityEndTime) {
+    public static void createActivityReport(Activity activity, String activityDescription, Timestamp activityStartTime, Timestamp activityEndTime, Integer ActivityDuration) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         ActivityReport actRep = new ActivityReport();
@@ -51,6 +51,7 @@ public class activitySetter {
         actRep.setActivityDescription(activityDescription);
         actRep.setActivityStartTime(activityStartTime);
         actRep.setActivityEndTime(activityEndTime);
+        actRep.setActivityDuration(ActivityDuration);
         session.save(actRep);
         session.getTransaction().commit();
 
