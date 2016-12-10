@@ -27,7 +27,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Activity Tracker - create activity</title>
+    <title>Activity Tracker - create entry</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -186,7 +186,7 @@
         </tr>
         <tr>                
             <%                for (int i = 0; i < ActivityReportArr.length; i++) {
-                    Integer z = ActivityReportArr[i].getActivity().getActivityId();
+                    Integer z = ActivityReportArr[i].getActivityReportId();
                     String duration = parser.duration.getActivityReportDurationById(z);
 
             %> 
