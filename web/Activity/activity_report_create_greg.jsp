@@ -18,7 +18,7 @@
 <%@page import="Hibernate.HibernateUtil"%>
 <%@page import="Activity.activitySetter"%>
 <%@page import="parser.timestamp"%>
-<%@page import="parser.duration"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -84,12 +84,12 @@
                     HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
                 %>
-                
-       
+
+
             </select>
         </div>
     </div>
-            
+
     <div class="panel panel-default">
         <div class="panel-heading">Beschreibung eingeben</div>
         <div class="panel-body">
@@ -117,9 +117,8 @@
         String s2 = request.getParameter("Beschreibung");
         String s3 = request.getParameter("activity_start_time");
         String s4 = request.getParameter("activity_end_time");
-        
 //out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
-        if (s1 != null && s2 != null && s3 != null && s4 != null ) {
+        if (s1 != null && s2 != null && s3 != null && s4 != null) {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Activity activity = new Activity();
@@ -133,24 +132,26 @@
             Timestamp activity_start_time = Timestamp.valueOf(ast);
             //out.println("ast " + activity_start_time);
             Timestamp activity_end_time = Timestamp.valueOf(aet);
-            //out.println("aet " + activity_end_time);
-            //Timestamp activity_start_time =timestamp.convertStringToTimestamp(s4);
-            //out.println("ast " + activity_start_time);
-            //Timestamp activity_start_time =Timestamp.valueOf(s4);
-            //out.println("ast " + activity_start_time);
-            //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
-            //out.println("aet " + activity_end_time);
-            
-            
+
             long duration_seconds = activity_end_time.getTime() - activity_start_time.getTime();
             int durtion_seconds_int = (((int) duration_seconds) / 1000);
             if (durtion_seconds_int > 0) {
-            activitySetter.createActivityReport(activity, s2 ,activity_start_time, activity_end_time, durtion_seconds_int);
+                activitySetter.createActivityReport(activity, s2, activity_start_time, activity_end_time, durtion_seconds_int);
+
             } else {  %>
     <script> alert('Bitte kürzeren Zeitraum angeben (maxmimal 7 Tage)');</script>
     <%}
-            //out.println("Kategorie" + s2 + "angelegt");
-        }
+        }%>
+    <% //out.println("aet " + activity_end_time);
+        //Timestamp activity_start_time =timestamp.convertStringToTimestamp(s4);
+        //out.println("ast " + activity_start_time);
+        //Timestamp activity_start_time =Timestamp.valueOf(s4);
+        //out.println("ast " + activity_start_time);
+        //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
+        //out.println("aet " + activity_end_time);
+        //out.println("Kategorie" + s2 + "angelegt");
+
+
     %> 
 </form>
 
