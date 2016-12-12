@@ -45,7 +45,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Auswertung deiner Daten</a></h1>
-        <p>queryn</p> 
+        <p>Wählen Sie eine Kategorie um deren Aktivitäten und die dafür aufgewendeten Zeiten zu sehen.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 <body>
@@ -60,6 +60,7 @@
             <th width=”50px”>Name</th>
             <th width="400px">Beschreibung</th>
             <th width=”50px”>Typ</th>
+            <th width=”50px”>Dauer</th>
 
         </tr>
         <tr>                
@@ -72,6 +73,7 @@
              <td><b><a href="Statistics/../category_detail.jsp?ID=<%=CategoryArr[i].getCategoryId()%>"><%=CategoryArr[i].getCategoryName()%></a></b></td>
             <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
             <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
+            <td><b>hier steht ne Dauer</b></td>
 
 
             <%
@@ -84,50 +86,7 @@
 </div>
   
         
- <div id="foo" class="panel panel-default" >
-    <!-- Default panel contents -->
-    <div class="panel-heading">Kategorien</div>
-
-    <!-- Table -->
-    <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
-        <tr>
-            <th width=”100px”>ID</th>
-            <th width=”100px”>Name</th>
-            <th width=”100px”>Beschreibung</th>
-            <th width=”100px”>Kategorie</th>
-            <th width=”100px”>Startdatum</th>
-            <th width=”100px”>Enddatum</th>
-            <th width=”100px”>Dauer</th>
-        </tr>
-        <tr>                
-            <%   
-                String s0 = "1";
-                
-                ActivityReport[] ActivityReportArr = activityGetter.getActivityReportsByCategoryId(Integer.parseInt(s0));
-                for (int i = 0; i < ActivityReportArr.length; i++) {
-                    Integer z = ActivityReportArr[i].getActivityReportId();
-                    String duration = parser.duration.getActivityReportDurationById(z);
-
-            %> 
-        <tr>
-            <td><b><%=ActivityReportArr[i].getActivityReportId()%></b></td>
-            <td><b><%=ActivityReportArr[i].getActivity().getActivityName()%></b></td>
-            <td><b><%=ActivityReportArr[i].getActivityDescription()%></b></td> 
-            <td><b><%=ActivityReportArr[i].getActivity().getCategory().getCategoryName()%></b></td>
-            <td><b><%=ActivityReportArr[i].getActivityStartTime()%></b></td>
-            <td><b><%=ActivityReportArr[i].getActivityEndTime()%></b></td>  
-            <td><b><%=duration%></b></td>                  
-
-
-
-            <%
-                }
-                HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
-
-            %>               
-        </tr>
-    </table>
-</div>       
+    
 </body>
 
 <hr>

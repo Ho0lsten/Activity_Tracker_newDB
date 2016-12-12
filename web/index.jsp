@@ -59,7 +59,7 @@
             <li><a href="Category/category_delete.jsp">löschen</a></li>
             <li><a href="Category/category_update.jsp">bearbeiten</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Übersicht</a></li>
+            <li><a href="Statistics/analysis.jsp">Übersicht</a></li>
         </ul>
     </div>
     <!-- Single button -->
@@ -72,7 +72,7 @@
             <li><a href="Activity/activity_delete.jsp">löschen</a></li>
             <li><a href="Activity/activity_update.jsp">bearbeiten</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Übersicht</a></li>
+            <li><a href="Statistics/analysis.jsp">Übersicht</a></li>
         </ul>
     </div>
     <!-- Single button -->

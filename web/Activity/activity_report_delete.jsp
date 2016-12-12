@@ -87,7 +87,7 @@
 </script>
 <br></br>
 
-<a class="btn btn-default" href="#" onclick="toggle_visibility('foo');">Kategorien anzeigen</a>
+<a class="btn btn-default" href="#" onclick="toggle_visibility('foo');">Einträge anzeigen</a>
 <br></br>
 
 <div id="foo" class="panel panel-default" style="display:none;">
