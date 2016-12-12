@@ -40,7 +40,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Zeiten korrigieren.</a></h1>
-        <p>beooarbeetn</p> 
+        <p></p> 
     </div>
 </div><!-- /End Jumbotron -->
 

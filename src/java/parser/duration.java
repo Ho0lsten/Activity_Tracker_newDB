@@ -5,6 +5,8 @@
  */
 package parser;
 
+import Activity.activityGetter;
+import Hibernate.Activity;
 import Hibernate.ActivityReport;
 import Hibernate.HibernateUtil;
 import org.hibernate.Hibernate;
@@ -30,9 +32,35 @@ public class duration {
         Integer numberOfHours = (ActivityDuration % 86400) / 3600;
         Integer numberOfMinutes = ((ActivityDuration % 86400) % 3600) / 60;
         Integer numberOfSeconds = ((ActivityDuration % 86400) % 3600) % 60;
-        
+
         return (numberOfDays + " T " + numberOfHours + " Std " + numberOfMinutes + " Min " + numberOfSeconds + " Sek ");
 
     }
 
-}
+//    public static String getCategoryDurationById(int CategoryId) {
+//
+//        Session session;
+//        Activity actRep = new Activity();
+//
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        actRep = (Activity) session.get(Activity.class, CategoryId);
+//        Hibernate.initialize(actRep);
+//
+//        Category category = new Category();
+//            Integer categoryid = Integer.parseInt(s2);
+//            category.setCategoryId(categoryid);
+//
+//       ActivityReport[] ActivityReportArr = activityGetter.getActivitiesByCategoryId(CategoryId);
+//        //Activity[] ActivityArr = activityGetter.getActivitiesByCategoryId(Activity.getCategory(CategoryId));
+//        for (int i = 0; i < ActivityArr.length; i++) {
+//            Integer ActivityDuration = actRep.getActivityDuration();
+//
+//            Integer numberOfDays = ActivityDuration / 86400;
+//            Integer numberOfHours = (ActivityDuration % 86400) / 3600;
+//            Integer numberOfMinutes = ((ActivityDuration % 86400) % 3600) / 60;
+//            Integer numberOfSeconds = ((ActivityDuration % 86400) % 3600) % 60;
+//
+//            return (numberOfDays + " T " + numberOfHours + " Std " + numberOfMinutes + " Min " + numberOfSeconds + " Sek ");
+//
+//        }
+    }

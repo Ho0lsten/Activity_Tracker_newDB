@@ -59,7 +59,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Zeiten erfassen</a></h1>
-        <p>fassn</p> 
+        <p>Hier könne Sie Zeiten auf Ihre bereits angelegten Aktivitäten buchen.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 
@@ -71,25 +71,25 @@
             <select name="Name">
 
                 <%
-                    ActivityReport[] ActivityReportArr = activityGetter.getActivityReports();
-                    Activity[] ActivityArr = activityGetter.getActivities();
-                    for (int i = 0; i < ActivityReportArr.length; i++) {
+
+                    Activity[] ActivityArr2 = activityGetter.getActivities();
+                    for (int i = 0; i < ActivityArr2.length; i++) {
 
                 %> 
 
-                <option value="<%=ActivityReportArr[i].getActivity().getActivityId()%>"><%=ActivityArr[i].getActivityName()%></option>        
+                <option value="<%=ActivityArr2[i].getActivityId()%>"><%=ActivityArr2[i].getActivityName()%></option>        
 
                 <%
                     }
                     HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
                 %>
-                
-       
+
+
             </select>
         </div>
     </div>
-            
+
     <div class="panel panel-default">
         <div class="panel-heading">Beschreibung eingeben</div>
         <div class="panel-body">
@@ -117,9 +117,9 @@
         String s2 = request.getParameter("Beschreibung");
         String s3 = request.getParameter("activity_start_time");
         String s4 = request.getParameter("activity_end_time");
-        
+
 //out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
-        if (s1 != null && s2 != null && s3 != null && s4 != null ) {
+        if (s1 != null && s2 != null && s3 != null && s4 != null) {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Activity activity = new Activity();
@@ -140,12 +140,11 @@
             //out.println("ast " + activity_start_time);
             //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
             //out.println("aet " + activity_end_time);
-            
-            
+
             long duration_seconds = activity_end_time.getTime() - activity_start_time.getTime();
             int durtion_seconds_int = (((int) duration_seconds) / 1000);
             if (durtion_seconds_int > 0) {
-            activitySetter.createActivityReport(activity, s2 ,activity_start_time, activity_end_time, durtion_seconds_int);
+                activitySetter.createActivityReport(activity, s2, activity_start_time, activity_end_time, durtion_seconds_int);
             } else {  %>
     <script> alert('Bitte kürzeren Zeitraum angeben (maxmimal 7 Tage)');</script>
     <%}
@@ -167,10 +166,10 @@
 </script>     
 <br></br>
 
-<a href="#" onclick="toggle_visibility('foo');">Aktivitäten anzeigen</a>
+<a class="btn btn-default" href="#" onclick="toggle_visibility('foo');">Aktivitäten anzeigen</a>
 <br></br>
 
-<div id="foo" class="panel panel-default">
+<div id="foo" class="panel panel-default" style="display:none;">
     <!-- Default panel contents -->
     <div class="panel-heading">Kategorien</div>
     <!-- Table -->
@@ -185,16 +184,17 @@
             <th width=”100px”>Dauer</th>
         </tr>
         <tr>                
-            <%                for (int i = 0; i < ActivityReportArr.length; i++) {
+            <%            ActivityReport[] ActivityReportArr = activityGetter.getActivityReports();
+                for (int i = 0; i < ActivityReportArr.length; i++) {
                     Integer z = ActivityReportArr[i].getActivityReportId();
                     String duration = parser.duration.getActivityReportDurationById(z);
 
             %> 
         <tr>
-            <td><b><%=ActivityReportArr[i].getActivity().getActivityId()%></b></td>
+            <td><b><%=ActivityReportArr[i].getActivityReportId()%></b></td>
             <td><b><%=ActivityReportArr[i].getActivity().getActivityName()%></b></td>
             <td><b><%=ActivityReportArr[i].getActivityDescription()%></b></td> 
-            <td><b><%=ActivityReportArr[i].getActivity().getCategory().getCategoryId()%></b></td>
+            <td><b><%=ActivityReportArr[i].getActivity().getCategory().getCategoryName()%></b></td>
             <td><b><%=ActivityReportArr[i].getActivityStartTime()%></b></td>
             <td><b><%=ActivityReportArr[i].getActivityEndTime()%></b></td>  
             <td><b><%=duration%></b></td>                  

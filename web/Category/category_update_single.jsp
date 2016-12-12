@@ -39,8 +39,8 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1><a href="../index.jsp">Aktivität bearbeiten.</a></h1>
-        <p>beooarbeetn</p> 
+        <h1><a href="../index.jsp">Kategorie bearbeiten.</a></h1>
+        <p>Überschreiben Sie die alten Attribute.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 <body>
@@ -50,16 +50,11 @@
                 if (s0 != null) {
                     Category cat = categoryGetter.getCategoryById(Integer.parseInt(s0));
                     String s1 = cat.getCategoryName();
-                    // out.println(s1);
+                   
                     String s2 = cat.getCategoryDescription();
-                    // out.println(s2);
+                    
                     String s3 = cat.getCategoryType();
-                    // out.println(s3);
-                    // Array s4[] = cat.getActivities();            
-
-                    // request.setAttribute("Type", s3);
-                    // request.setAttribute("Activities", s3);
-
+                   
             %> 
         
         <form action="category_update_single.jsp">
@@ -76,9 +71,6 @@
             </select>
             <span class="badge"><%=s3%></span>
             
-<!--            Aktivitäten: <input type="text" name="Activities" value="<%//=s4%>">
-            <input type="submit" name="Update!">-->
-
             <%}
                 String u0 = request.getParameter("ID");
                 String u1 = request.getParameter("Name");

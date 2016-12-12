@@ -57,8 +57,8 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1><a href="../index.jsp">Aktivität anlegen.</a></h1>
-        <p>aaaleng</p> 
+        <h1><a href="../index.jsp">Aktivität anlegen</a></h1>
+        <p>Speichern Sie Ihre Aktivitäten</p> 
     </div>
 </div><!-- /End Jumbotron -->
 
@@ -98,54 +98,37 @@
 
     <%  String s1 = request.getParameter("Name");
         String s2 = request.getParameter("Kategorien");
-        // String s4 = request.getParameter("activity_start_time");
-        // String s5 = request.getParameter("activity_end_time");
-//out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
+
         if (s1 != null && s2 != null) {
 
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Category category = new Category();
             Integer categoryid = Integer.parseInt(s2);
             category.setCategoryId(categoryid);
-            // Category fkCategoryId = Category.setCategoryId(s2);
-            //java.sql.Timestamp activity_start_time = Timestamp.parse(s4, formatter);
-            //LocalDateTime ast = LocalDateTime.parse(s4, formatter);
-            //LocalDateTime aet = LocalDateTime.parse(s5, formatter);
-
-            //Timestamp activity_start_time = Timestamp.valueOf(ast);
-            //out.println("ast " + activity_start_time);
-            //Timestamp activity_end_time = Timestamp.valueOf(aet);
-            //out.println("aet " + activity_end_time);
-            //Timestamp activity_start_time =timestamp.convertStringToTimestamp(s4);
-            //out.println("ast " + activity_start_time);
-            //Timestamp activity_start_time =Timestamp.valueOf(s4);
-            //out.println("ast " + activity_start_time);
-            //Timestamp activity_end_time =timestamp.convertStringToTimestamp(s5);
-            //out.println("aet " + activity_end_time);
             activitySetter.createActivity(s1, category);
-            //out.println("Kategorie" + s2 + "angelegt");
         }
 
     %> 
 </form>
 
 <script type="text/javascript">
-
+toggle_visibility('foo')
     function toggle_visibility(id) {
         var e = document.getElementById(id);
-        if (e.style.display === 'none')
-            e.style.display = 'block';
-        else
+        if (e.style.display == 'block')
             e.style.display = 'none';
+        else
+            e.style.display = 'block';
     }
 
 </script>     
 <br></br>
-
-<a href="#" onclick="toggle_visibility('foo');">Aktivitäten anzeigen</a>
+<script>
+    
+  </script>  
+<a class="btn btn-default"  href="#" onclick="toggle_visibility('foo');">Aktivitäten anzeigen</a>
 <br></br>
 
-<div id="foo" class="panel panel-default">
+<div id="foo" class="panel panel-default" style="display:none;" >
     <!-- Default panel contents -->
     <div class="panel-heading">Kategorien</div>
     <!-- Table -->

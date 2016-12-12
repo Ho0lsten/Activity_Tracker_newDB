@@ -53,7 +53,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Zeiten löschen.</a></h1>
-        <p>weesch</p> 
+        <p>Durch das löschen von Zeiten verändern sich die errechneten Werte.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 <div class="panel panel-default">
@@ -90,7 +90,7 @@
 <a class="btn btn-default" href="#" onclick="toggle_visibility('foo');">Kategorien anzeigen</a>
 <br></br>
 
-<div id="foo" class="panel panel-default">
+<div id="foo" class="panel panel-default" style="display:none;">
     <!-- Default panel contents -->
     <div class="panel-heading"><a href="../index.jsp">Kategorien</a></div>
 

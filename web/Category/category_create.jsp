@@ -42,7 +42,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Kategorien anlegen</a></h1>
-        <p>aaaleng</p> 
+        <p>Erstellen Sie ihre eigenen Kategorien.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 <form action="category_create.jsp">
@@ -104,10 +104,10 @@
 </script>     
 <br></br>
 
-<a href="#" onclick="toggle_visibility('foo');">Kategorien anzeigen</a>
+<a class="btn btn-default"href="#" onclick="toggle_visibility('foo');">Kategorien anzeigen</a>
 <br></br>
 
-<div id="foo" class="panel panel-default">
+<div id="foo" class="panel panel-default" style="display:none;">
     <!-- Default panel contents -->
     <div class="panel-heading">Kategorien</div>
 

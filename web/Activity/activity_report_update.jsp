@@ -41,7 +41,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Zeiten korrigieren.</a></h1>
-        <p>beooarbeetn</p> 
+        <p>Zeiten falsch aufgenommen? Hier können Sie diese verändern.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 

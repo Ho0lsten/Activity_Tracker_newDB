@@ -46,7 +46,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Aktivität bearbeiten.</a></h1>
-        <p>beooarbeetn</p> 
+        <p>Datensätze können nur einzeln bearbeitet werden.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 

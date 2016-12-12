@@ -1,13 +1,12 @@
 <%-- 
-    Document   : category_update
-    Created on : 02.12.2016, 12:49:12
-    Author     : hools_000
+    Document   : category_detail
+    Created on : 11.12.2016, 19:05:16
+    Author     : Ho0lsten 3570
 --%>
 
 <%@page import="Hibernate.HibernateUtil"%>
-<%@page import="Category.categorySetter"%>
-<%@page import="Category.categoryGetter"%>
-<%@page import="Hibernate.Category"%>
+<%@page import="Activity.activityGetter"%>
+<%@page import="Hibernate.Activity"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -16,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Activity Tracker - update category</title>
+    <title>Activity Tracker - update activity</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -40,36 +39,44 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1><a href="../index.jsp">Kategorien bearbeiten.</a></h1>
-        <p>Verändern Sie die einzelnen Attribute Ihrer Kategorien.</p> 
+        <h1><a href="../index.jsp">Aktivität bearbeiten.</a></h1>
+        <p>Datensätze können nur einzeln bearbeitet werden.</p> 
     </div>
 </div><!-- /End Jumbotron -->
+
 <body>
 
-        
-         <div id="foo" class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading">Kategorien</div>
 
+    <%  String s0 = request.getParameter("ID");
+
+        
+
+    %> 
+    
+<form action="category_detail.jsp">
+   
+       
+        <input type="hidden" name="ID" value="<%=s0%>">
+        <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Aktivitäten</div>
     <!-- Table -->
     <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
         <tr>
             <th width=”100px”>ID</th>
             <th width=”100px”>Name</th>
-            <th width="100px">Beschreibung</th>
-            <th width=”100px”>Typ</th>
-
+            <th width=”100px”>Kategorie</th>
         </tr>
         <tr>                
-            <%
-                Category[] CategoryArr = categoryGetter.getCategorys();
-                for (int i = 0; i < CategoryArr.length; i++) {
+            <%                Activity[] ActivityArr = activityGetter.getActivitiesByCategoryId(Integer.parseInt(s0));
+                for (int i = 0; i < ActivityArr.length; i++) {
+
             %> 
         <tr>
-            <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
-             <td><b><a href="category_update_single.jsp?ID=<%=CategoryArr[i].getCategoryId()%>"><%=CategoryArr[i].getCategoryName()%></a></b></td>
-            <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
-            <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
+            <td><b><%=ActivityArr[i].getActivityId()%></b></td>
+            <td><b><%=ActivityArr[i].getActivityName()%></b></td>
+            <td><b><%=ActivityArr[i].getCategory().getCategoryName()%></b></td>
+                       
 
 
             <%
@@ -80,7 +87,9 @@
         </tr>
     </table>
 </div>
+    </form>
 </body>
+
 <hr>
 
 <footer>

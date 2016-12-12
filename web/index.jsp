@@ -37,7 +37,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="index.jsp">Activity Tracker</a></h1>
-        <p>Wir haben doch keine Zeit !</p> 
+        <p>Dokumentieren Sie ihre Aktivitäten!</p> 
         <div class="btn-group" role="group" aria-label="...">
             <a class="btn btn-default" href="Activity/activity_report_create.jsp">Zeiten erfassen</a>
             <a class="btn btn-default" href="Activity/activity_report_delete.jsp">Zeiten löschen</a>
@@ -99,7 +99,7 @@
         </div>
         <div class="col-md-4">
             <h2>Aktivitäten verwalten</h2>
-            <p>Dokumentieren Sie ihre Aktivitäten.</p>
+            <p>Bestimmen Sie ihre Aktivitäten.</p>
 
         </div>
         <div class="col-md-4">

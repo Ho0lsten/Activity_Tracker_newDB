@@ -13,6 +13,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -92,5 +93,45 @@ public class activityGetter {
             throw e;
         }
         return activityReport;
+    }
+
+    public static Activity[] getActivitiesByCategoryId(int categoryId) {
+
+      Session session;
+        //Criteria requires a transaction opened
+        session = HibernateUtil.getSessionFactory().openSession();
+        //create Criteria for Customer class
+        Criteria criteria = session.createCriteria(Activity.class);
+        criteria.add(Restrictions.eq("category.categoryId", categoryId));
+        //add a Restriction which will be used for equality –> state = ‘MI’
+        
+        
+        //add an order for using customer_ID column
+        //criteria.addOrder(Order.asc(“customer_ID”));
+        //return the resultset as a List
+        List<Activity> Activityresult = criteria.list();
+
+        //convert List to Array
+        return Activityresult.toArray(new Activity[Activityresult.size()]);
+    }
+    
+    public static ActivityReport[] getActivityReportsByCategoryId(int categoryId) {
+
+      Session session;
+        //Criteria requires a transaction opened
+        session = HibernateUtil.getSessionFactory().openSession();
+        //create Criteria for Customer class
+        Criteria criteria = session.createCriteria(ActivityReport.class);
+        criteria.add(Restrictions.eq("activty.activityId.category", categoryId));
+        //add a Restriction which will be used for equality –> state = ‘MI’
+        
+        
+        //add an order for using customer_ID column
+        //criteria.addOrder(Order.asc(“customer_ID”));
+        //return the resultset as a List
+        List<Activity> Activityresult = criteria.list();
+
+        //convert List to Array
+        return Activityresult.toArray(new ActivityReport[Activityresult.size()]);
     }
 }

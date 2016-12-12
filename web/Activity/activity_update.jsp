@@ -43,7 +43,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1><a href="../index.jsp">Aktivität bearbeiten.</a></h1>
-        <p>beooarbeetn</p> 
+        <p>Verändern Sie die Attribute Ihrer aktivitäten.</p> 
     </div>
 </div><!-- /End Jumbotron -->
 
